@@ -1,10 +1,26 @@
-//
-//  BCUserModel.m
-//  BookClub
-//
-//  Created by 向荣华 on 2019/5/2.
-//  Copyright © 2019 scottban. All rights reserved.
-//
+/**
+ MIT License
+ 
+ Copyright (c) 2018 Scott Ban (https://github.com/reference/BDAPI)
+ 
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ 
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+ 
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+ */
 
 #import "BCUserModel.h"
 #import <BDToolKit/BDToolKit.h>
@@ -106,10 +122,10 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:keyUserLogoutNotification object:nil];
 }
 
-+ (void)loginWithMobile:(NSString *)mobile password:(NSString *)password completion:(void(^)(BCUserModel *m, NSError *error))completion
++ (void)loginWithMobile:(NSString *)mobile password:(NSString *)password forApp:(NSString *)app completion:(void(^)(BCUserModel *m, NSError *error))completion
 {
     NSString *path = @"/api/user/login";
-    [HTTP requestWithPath:path params:@{@"mobile":mobile,@"password":password} responseDataClass:self.class completion:^(HTTPResponse *response, NSError *error) {
+    [HTTP requestWithPath:path params:@{@"mobile":mobile,@"password":password,@"app":app} responseDataClass:self.class completion:^(HTTPResponse *response, NSError *error) {
         if (completion) {
             completion(response.data,error);
         }
@@ -122,6 +138,7 @@
                     avatar:(NSString *)avatar
                   nickname:(NSString *)nickname
                       memo:(NSString *)memo
+                    forApp:(NSString *)app
                 completion:(void(^)(BCUserModel *m, NSError *error))completion
 {
     NSString *path = @"/api/user/register";
@@ -135,7 +152,7 @@
         [param setObject:[memo stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]] forKey:@"memo"];
     }
     [param setObject:@"ios" forKey:@"client"];
-    [param setObject:@"bookclub" forKey:@"app"];
+    [param setObject:app forKey:@"app"];
 
     [HTTP requestWithPath:path params:param responseDataClass:self.class completion:^(HTTPResponse *response, NSError *error) {
         if (completion) {
@@ -144,7 +161,7 @@
     }];
 }
 
-+ (void)updateUserInfoWithAvatar:(NSString *)avatar nickname:(NSString *)nickname memo:(NSString *)memo sex:(NSString *)sex completion:(void(^)(BCUserModel *m, NSError *error))completion
++ (void)updateUserInfoWithAvatar:(NSString *)avatar nickname:(NSString *)nickname memo:(NSString *)memo sex:(NSString *)sex forApp:(NSString *)app completion:(void(^)(BCUserModel *m, NSError *error))completion
 {
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     if ([avatar isNotEmpty]) {
@@ -159,6 +176,8 @@
     if ([sex isNotEmpty]) {
         [param setObject:sex forKey:@"sex"];
     }
+    [param setObject:app forKey:@"app"];
+
     NSString *path = @"/api/user/updateInfo";
 
     [HTTP requestWithPath:path params:param responseDataClass:self.class completion:^(HTTPResponse *response, NSError *error) {
@@ -168,10 +187,11 @@
     }];
 }
 
-+ (void)requestUserInfoWithUserId:(NSInteger)userId completion:(void(^)(BCUserModel *m,NSError *error))completion
++ (void)requestUserInfoWithUserId:(NSInteger)userId forApp:(NSString *)app completion:(void(^)(BCUserModel *m,NSError *error))completion
 {
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [param setObject:@(userId) forKey:@"userid"];
+    [param setObject:app forKey:@"app"];
     NSString *path = @"/api/user/userInfo";
     
     [HTTP requestWithPath:path params:param responseDataClass:self.class completion:^(HTTPResponse *response, NSError *error) {
@@ -181,10 +201,11 @@
     }];
 }
 
-+ (void)searchByNickName:(NSString *)nickname completion:(void(^)(BCUserModel *m,NSError *error))completion
++ (void)searchByNickName:(NSString *)nickname forApp:(NSString *)app completion:(void(^)(BCUserModel *m,NSError *error))completion
 {
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [param setObject:[nickname stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]] forKey:@"nickname"];
+    [param setObject:app forKey:@"app"];
     NSString *path = @"/api/user/search";
     
     [HTTP requestWithPath:path params:param responseDataClass:self.class completion:^(HTTPResponse *response, NSError *error) {
@@ -194,10 +215,11 @@
     }];
 }
 
-+ (void)searchByUserId:(NSInteger)userId completion:(void(^)(BCUserModel *m,NSError *error))completion
++ (void)searchByUserId:(NSInteger)userId forApp:(NSString *)app completion:(void(^)(BCUserModel *m,NSError *error))completion
 {
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [param setObject:@(userId) forKey:@"userId"];
+    [param setObject:app forKey:@"app"];
     NSString *path = @"/api/user/search";
     
     [HTTP requestWithPath:path params:param responseDataClass:self.class completion:^(HTTPResponse *response, NSError *error) {
@@ -207,12 +229,13 @@
     }];
 }
 
-+ (void)requestNewUsersByOffset:(NSInteger)offset completion:(void(^)(NSArray <BCUserModel*> *ms,NSError *error))completion
++ (void)requestNewUsersByOffset:(NSInteger)offset forApp:(NSString *)app completion:(void(^)(NSArray <BCUserModel*> *ms,NSError *error))completion
 {
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [param setObject:APP forKey:@"app"];
     [param setObject:@(offset) forKey:@"offset"];
     [param setObject:@(FDPageSize) forKey:@"limit"];
+    [param setObject:app forKey:@"app"];
     NSString *path = @"/api/user/all";
     
     [HTTP requestWithPath:path params:param responseDataClass:self.class completion:^(HTTPResponse *response, NSError *error) {

@@ -125,6 +125,7 @@
 				8F920A6922916266007110EA /* BCContactRequestModel.h */,
 				8F920A6A22916266007110EA /* BCZoneModel.h */,
 				8F920A6B22916266007110EA /* BCChatModel.h */,
+				8F920A7322916266007110EA /* BCUserModel.h */,
 				8F920A6C22916266007110EA /* BCUserModel.m */,
 				8F920A6D22916266007110EA /* BCChatListModel.m */,
 				8F920A6E22916266007110EA /* BCContactModel.m */,
@@ -132,7 +133,6 @@
 				8F920A7022916266007110EA /* BCContactRequestModel.m */,
 				8F920A7122916266007110EA /* BCChatModel.m */,
 				8F920A7222916266007110EA /* BCChatListModel.h */,
-				8F920A7322916266007110EA /* BCUserModel.h */,
 			);
 			path = Model;
 			sourceTree = SOURCE_ROOT;

@@ -232,7 +232,7 @@
 + (void)requestNewUsersByOffset:(NSInteger)offset forApp:(NSString *)app completion:(void(^)(NSArray <BCUserModel*> *ms,NSError *error))completion
 {
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
-    [param setObject:APP forKey:@"app"];
+    [param setObject:app forKey:@"app"];
     [param setObject:@(offset) forKey:@"offset"];
     [param setObject:@(FDPageSize) forKey:@"limit"];
     [param setObject:app forKey:@"app"];

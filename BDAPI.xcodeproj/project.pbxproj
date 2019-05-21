@@ -29,6 +29,8 @@
 		8F920A8522916266007110EA /* BCUserModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F920A7322916266007110EA /* BCUserModel.h */; };
 		8FDB0A1F2293E38700DAD974 /* BCCommunityPuhlishModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FDB0A1D2293E38700DAD974 /* BCCommunityPuhlishModel.h */; };
 		8FDB0A202293E38700DAD974 /* BCCommunityPuhlishModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB0A1E2293E38700DAD974 /* BCCommunityPuhlishModel.m */; };
+		8FFC7675229472C800ED85DC /* BCCommunityModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FFC7673229472C800ED85DC /* BCCommunityModel.h */; };
+		8FFC7676229472C800ED85DC /* BCCommunityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FFC7674229472C800ED85DC /* BCCommunityModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		8F920A7322916266007110EA /* BCUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCUserModel.h; sourceTree = "<group>"; };
 		8FDB0A1D2293E38700DAD974 /* BCCommunityPuhlishModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCCommunityPuhlishModel.h; sourceTree = "<group>"; };
 		8FDB0A1E2293E38700DAD974 /* BCCommunityPuhlishModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCCommunityPuhlishModel.m; sourceTree = "<group>"; };
+		8FFC7673229472C800ED85DC /* BCCommunityModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCCommunityModel.h; sourceTree = "<group>"; };
+		8FFC7674229472C800ED85DC /* BCCommunityModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCCommunityModel.m; sourceTree = "<group>"; };
 		E7037383C46043C46D96D87E /* Pods_BDAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BDAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD59BB4C67DB974A11C0BD10 /* Pods-BDAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDAPI.release.xcconfig"; path = "Target Support Files/Pods-BDAPI/Pods-BDAPI.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +143,8 @@
 				8F920A7222916266007110EA /* BCChatListModel.h */,
 				8FDB0A1D2293E38700DAD974 /* BCCommunityPuhlishModel.h */,
 				8FDB0A1E2293E38700DAD974 /* BCCommunityPuhlishModel.m */,
+				8FFC7673229472C800ED85DC /* BCCommunityModel.h */,
+				8FFC7674229472C800ED85DC /* BCCommunityModel.m */,
 			);
 			path = Model;
 			sourceTree = SOURCE_ROOT;
@@ -170,6 +176,7 @@
 				8F920A7B22916266007110EA /* BCContactRequestModel.h in Headers */,
 				8F920A7A22916266007110EA /* BCContactModel.h in Headers */,
 				8F920A7C22916266007110EA /* BCZoneModel.h in Headers */,
+				8FFC7675229472C800ED85DC /* BCCommunityModel.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +282,7 @@
 				8F920A8022916266007110EA /* BCContactModel.m in Sources */,
 				8F920A8222916266007110EA /* BCContactRequestModel.m in Sources */,
 				8F920A7922916266007110EA /* HTTP.m in Sources */,
+				8FFC7676229472C800ED85DC /* BCCommunityModel.m in Sources */,
 				8F920A7522916266007110EA /* HTTPResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

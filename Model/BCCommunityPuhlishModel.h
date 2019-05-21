@@ -38,7 +38,6 @@
 @property (nonatomic, strong) NSString *topdesc;
 @property (nonatomic, assign) NSInteger categoryid;
 @property (nonatomic, assign) NSInteger communityid;
-@property (nonatomic, strong) NSString *app;
 
 /**
  发布
@@ -52,7 +51,6 @@
  @param topDesc 置顶描述
  @param categoryId 分类ID
  @param communityId 社区ID
- @param app 应用来源
  @param completion nil
  */
 + (void)newPublishWithContent:(NSString *)content
@@ -64,7 +62,6 @@
                       topDesc:(NSString *)topDesc
                    categoryId:(NSInteger)categoryId
                   communityId:(NSInteger)communityId
-                       forApp:(NSString *)app
                    completion:(void(^)(NSError *error))completion;
 
 
@@ -74,13 +71,11 @@
  @param offset 偏移量
  @param categoryId 分类ID
  @param communityId 社区ID
- @param app 应用来源
  @param completion nil
  */
 + (void)requestPublishedListWithOffset:(NSInteger)offset
                             categoryId:(NSInteger)categoryId
                            communityId:(NSInteger)communityId
-                                forApp:(NSString *)app
                             completion:(void(^)(NSArray <BCCommunityPuhlishModel *> *ms,NSError *error))completion;
 
 @end

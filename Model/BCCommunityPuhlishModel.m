@@ -31,7 +31,7 @@
     return @{@"ID":@"id"};
 }
 
-+ (void)newPublishWithContent:(NSString *)content userId:(NSString *)userId images:(NSString *)images mobile:(NSString *)mobile contactName:(NSString *)contactName isTop:(BOOL)isTop topDesc:(NSString *)topDesc categoryId:(NSInteger)categoryId communityId:(NSInteger)communityId forApp:(NSString *)app completion:(void(^)(NSError *error))completion
++ (void)newPublishWithContent:(NSString *)content userId:(NSString *)userId images:(NSString *)images mobile:(NSString *)mobile contactName:(NSString *)contactName isTop:(BOOL)isTop topDesc:(NSString *)topDesc categoryId:(NSInteger)categoryId communityId:(NSInteger)communityId completion:(void(^)(NSError *error))completion
 {
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [param setObject:content forKey:@"content"];
@@ -42,9 +42,8 @@
     [param setObject:topDesc forKey:@"topDesc"];
     [param setObject:@(categoryId) forKey:@"categoryId"];
     [param setObject:@(communityId) forKey:@"communityId"];
-    [param setObject:app forKey:@"app"];
     
-    NSString *path = @"/api/community/new";
+    NSString *path = @"/api/community/newPublish";
     [HTTP requestWithPath:path params:param responseDataClass:nil completion:^(HTTPResponse *response, NSError *error) {
         if (completion) {
             completion(error);
@@ -55,7 +54,6 @@
 + (void)requestPublishedListWithOffset:(NSInteger)offset
                             categoryId:(NSInteger)categoryId
                            communityId:(NSInteger)communityId
-                                forApp:(NSString *)app
                             completion:(void(^)(NSArray <BCCommunityPuhlishModel *> *ms,NSError *error))completion
 {
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
@@ -63,7 +61,6 @@
     [param setObject:@(FDPageSize) forKey:@"pageSize"];
     [param setObject:@(categoryId) forKey:@"categoryId"];
     [param setObject:@(communityId) forKey:@"communityId"];
-    [param setObject:app forKey:@"app"];
     
     NSString *path = @"/api/community/publishedList";
     [HTTP requestWithPath:path params:param responseDataClass:nil completion:^(HTTPResponse *response, NSError *error) {

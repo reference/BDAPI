@@ -37,3 +37,7 @@
 #import "BCContactRequestModel.h"
 #import "BCChatModel.h"
 #import "BCChatListModel.h"
+
+//社区
+#import "BCCommunityPuhlishModel.h"
+

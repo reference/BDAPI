@@ -27,6 +27,8 @@
 		8F920A8322916266007110EA /* BCChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F920A7122916266007110EA /* BCChatModel.m */; };
 		8F920A8422916266007110EA /* BCChatListModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F920A7222916266007110EA /* BCChatListModel.h */; };
 		8F920A8522916266007110EA /* BCUserModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F920A7322916266007110EA /* BCUserModel.h */; };
+		8FDB0A1F2293E38700DAD974 /* BCCommunityPuhlishModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FDB0A1D2293E38700DAD974 /* BCCommunityPuhlishModel.h */; };
+		8FDB0A202293E38700DAD974 /* BCCommunityPuhlishModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB0A1E2293E38700DAD974 /* BCCommunityPuhlishModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		8F920A7122916266007110EA /* BCChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCChatModel.m; sourceTree = "<group>"; };
 		8F920A7222916266007110EA /* BCChatListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCChatListModel.h; sourceTree = "<group>"; };
 		8F920A7322916266007110EA /* BCUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCUserModel.h; sourceTree = "<group>"; };
+		8FDB0A1D2293E38700DAD974 /* BCCommunityPuhlishModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCCommunityPuhlishModel.h; sourceTree = "<group>"; };
+		8FDB0A1E2293E38700DAD974 /* BCCommunityPuhlishModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCCommunityPuhlishModel.m; sourceTree = "<group>"; };
 		E7037383C46043C46D96D87E /* Pods_BDAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BDAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD59BB4C67DB974A11C0BD10 /* Pods-BDAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDAPI.release.xcconfig"; path = "Target Support Files/Pods-BDAPI/Pods-BDAPI.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +137,8 @@
 				8F920A7022916266007110EA /* BCContactRequestModel.m */,
 				8F920A7122916266007110EA /* BCChatModel.m */,
 				8F920A7222916266007110EA /* BCChatListModel.h */,
+				8FDB0A1D2293E38700DAD974 /* BCCommunityPuhlishModel.h */,
+				8FDB0A1E2293E38700DAD974 /* BCCommunityPuhlishModel.m */,
 			);
 			path = Model;
 			sourceTree = SOURCE_ROOT;
@@ -153,6 +159,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FDB0A1F2293E38700DAD974 /* BCCommunityPuhlishModel.h in Headers */,
 				8F920A8422916266007110EA /* BCChatListModel.h in Headers */,
 				8F920A7422916266007110EA /* HTTP.h in Headers */,
 				8F920A7D22916266007110EA /* BCChatModel.h in Headers */,
@@ -261,6 +268,7 @@
 			files = (
 				8F920A8122916266007110EA /* BCZoneModel.m in Sources */,
 				8F920A7F22916266007110EA /* BCChatListModel.m in Sources */,
+				8FDB0A202293E38700DAD974 /* BCCommunityPuhlishModel.m in Sources */,
 				8F920A7722916266007110EA /* NSError+LocalizedDescription.m in Sources */,
 				8F920A8322916266007110EA /* BCChatModel.m in Sources */,
 				8F920A7E22916266007110EA /* BCUserModel.m in Sources */,

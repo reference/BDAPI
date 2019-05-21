@@ -63,7 +63,7 @@
     [param setObject:@(communityId) forKey:@"communityId"];
     
     NSString *path = @"/api/community/publishedList";
-    [HTTP requestWithPath:path params:param responseDataClass:nil completion:^(HTTPResponse *response, NSError *error) {
+    [HTTP requestWithPath:path params:param responseDataClass:self.class completion:^(HTTPResponse *response, NSError *error) {
         if (completion) {
             completion(response.data,error);
         }

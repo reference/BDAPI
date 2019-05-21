@@ -32,7 +32,7 @@
 + (void)requestAllCommunities:(void(^)(NSArray <BCCommunityModel *> *ms,NSError *error))completion
 {
     NSString *path = @"/api/public/community/all";
-    [HTTP requestWithPath:path params:nil responseDataClass:nil completion:^(HTTPResponse *response, NSError *error) {
+    [HTTP requestWithPath:path params:nil responseDataClass:self.class completion:^(HTTPResponse *response, NSError *error) {
         if (completion) {
             completion(response.data,error);
         }

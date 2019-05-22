@@ -21,25 +21,21 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  SOFTWARE.
  */
-
-#import <UIKit/UIKit.h>
-
-#define keyUserLogoutNotification @"keyLogout"
-#define FDPageSize 20
-
-#import "HTTP.h"
-#import "HTTPResponse.h"
-#import "NSError+LocalizedDescription.h"
-
-#import "BCUserModel.h"
-#import "BCZoneModel.h"
-#import "BCContactModel.h"
-#import "BCContactRequestModel.h"
-#import "BCChatModel.h"
-#import "BCChatListModel.h"
-
-//社区
-#import "BCCommunityPuhlishModel.h"
-#import "BCCommunityModel.h"
 #import "BCCommunityCategoryModel.h"
+#import "HTTP.h"
 
+@implementation BCCommunityCategoryModel
++ (NSDictionary<NSString *,id> *)modelCustomPropertyMapper{
+    return @{@"ID":@"id"};
+}
+
++ (void)requestAllCommunityCategories:(void(^)(NSArray <BCCommunityCategoryModel *> *ms,NSError *error))completion
+{
+    NSString *path = @"/api/community/category/all";
+    [HTTP requestWithPath:path params:nil responseDataClass:self.class completion:^(HTTPResponse *response, NSError *error) {
+        if (completion) {
+            completion(response.data,error);
+        }
+    }];
+}
+@end

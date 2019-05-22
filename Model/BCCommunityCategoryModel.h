@@ -21,25 +21,19 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  SOFTWARE.
  */
+/// 社区发布的分类
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-#define keyUserLogoutNotification @"keyLogout"
-#define FDPageSize 20
-
-#import "HTTP.h"
-#import "HTTPResponse.h"
-#import "NSError+LocalizedDescription.h"
-
-#import "BCUserModel.h"
-#import "BCZoneModel.h"
-#import "BCContactModel.h"
-#import "BCContactRequestModel.h"
-#import "BCChatModel.h"
-#import "BCChatListModel.h"
-
-//社区
-#import "BCCommunityPuhlishModel.h"
-#import "BCCommunityModel.h"
-#import "BCCommunityCategoryModel.h"
-
+@interface BCCommunityCategoryModel : NSObject
+@property (nonatomic, assign) NSInteger ID;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *icon;
+@property (nonatomic, assign) NSInteger communityid;
+/**
+ 所有社区发布的分类
+ 
+ @param completion callback
+ */
++ (void)requestAllCommunityCategories:(void(^)(NSArray <BCCommunityCategoryModel *> *ms,NSError *error))completion;
+@end

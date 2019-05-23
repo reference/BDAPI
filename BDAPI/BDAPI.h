@@ -25,7 +25,6 @@
 #import <UIKit/UIKit.h>
 
 #define keyUserLogoutNotification @"keyLogout"
-#define FDPageSize 20
 
 #import "HTTP.h"
 #import "HTTPResponse.h"

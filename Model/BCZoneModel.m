@@ -23,6 +23,7 @@
  */
 #import "BCZoneModel.h"
 #import <BDToolKit/BDToolKit.h>
+#import <StandardPageSize.h>
 #import "HTTP.h"
 #import "BDAPI.h"
 
@@ -34,7 +35,7 @@
 + (void)requestAllMyZoneListWithOffset:(NSInteger)offset completion:(void(^)(NSArray <BCZoneModel *> *ms, NSError *error))completion
 {
     NSString *path = @"/api/zone/friends";
-    [HTTP requestWithPath:path params:@{@"offset":@(offset),@"size":@(FDPageSize)} responseDataClass:self.class completion:^(HTTPResponse *response, NSError *error) {
+    [HTTP requestWithPath:path params:@{@"offset":@(offset),@"size":@(Standard_Page_Size_Default)} responseDataClass:self.class completion:^(HTTPResponse *response, NSError *error) {
         if (completion) {
             completion(response.data,error);
         }
@@ -44,7 +45,7 @@
 + (void)requestAllZoneListWithOffset:(NSInteger)offset completion:(void(^)(NSArray <BCZoneModel *> *ms, NSError *error))completion
 {
     NSString *path = @"/api/zone/all";
-    [HTTP requestWithPath:path params:@{@"offset":@(offset),@"size":@(FDPageSize)} responseDataClass:self.class completion:^(HTTPResponse *response, NSError *error) {
+    [HTTP requestWithPath:path params:@{@"offset":@(offset),@"size":@(Standard_Page_Size_Default)} responseDataClass:self.class completion:^(HTTPResponse *response, NSError *error) {
         if (completion) {
             completion(response.data,error);
         }
@@ -54,7 +55,7 @@
 + (void)requestUserZoneListWithUserId:(NSInteger)userId offset:(NSInteger)offset completion:(void(^)(NSArray <BCZoneModel *> *ms, NSError *error))completion
 {
     NSString *path = @"/api/zone/user";
-    [HTTP requestWithPath:path params:@{@"offset":@(offset),@"size":@(FDPageSize),@"userid":@(userId)} responseDataClass:self.class completion:^(HTTPResponse *response, NSError *error) {
+    [HTTP requestWithPath:path params:@{@"offset":@(offset),@"size":@(Standard_Page_Size_Default),@"userid":@(userId)} responseDataClass:self.class completion:^(HTTPResponse *response, NSError *error) {
         if (completion) {
             completion(response.data,error);
         }

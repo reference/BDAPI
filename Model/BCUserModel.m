@@ -24,6 +24,7 @@
 
 #import "BCUserModel.h"
 #import <BDToolKit/BDToolKit.h>
+#import <StandardPageSize.h>
 #import "HTTP.h"
 #import "BDAPI.h"
 
@@ -234,7 +235,7 @@
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [param setObject:app forKey:@"app"];
     [param setObject:@(offset) forKey:@"offset"];
-    [param setObject:@(FDPageSize) forKey:@"limit"];
+    [param setObject:@(Standard_Page_Size_Default) forKey:@"limit"];
     [param setObject:app forKey:@"app"];
     NSString *path = @"/api/user/all";
     

@@ -23,6 +23,7 @@
  */
 
 #import "BCCommunityPuhlishModel.h"
+#import <StandardPageSize.h>
 #import "HTTP.h"
 #import "BDAPI.h"
 
@@ -58,7 +59,7 @@
 {
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [param setObject:@(offset) forKey:@"offset"];
-    [param setObject:@(FDPageSize) forKey:@"pageSize"];
+    [param setObject:@(Standard_Page_Size_Default) forKey:@"pageSize"];
     [param setObject:@(categoryId) forKey:@"categoryId"];
     [param setObject:@(communityId) forKey:@"communityId"];
     

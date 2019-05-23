@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "BDAPI"
-  s.version      = "0.1.6"
+  s.version      = "0.1.7"
   s.summary      = "BDAPI"
   s.homepage     = "https://github.com/reference/BDAPI"
   s.description  = <<-DESC
@@ -16,6 +16,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.source_files = ["BDAPI/*.{h,m}","HTTP/**/*.{h,m}","Model/**/*.{h,m}"]
 
+  s.dependency "StandardPageSize"
   s.dependency "BDToolKit"
   s.dependency "AFNetworking"
   s.dependency "ZXToolbox"

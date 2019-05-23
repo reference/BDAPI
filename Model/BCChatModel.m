@@ -24,6 +24,7 @@
 
 #import "BCChatModel.h"
 #import <BDToolKit/BDToolKit.h>
+#import <StandardPageSize.h>
 #import "HTTP.h"
 #import "BDAPI.h"
 
@@ -35,7 +36,7 @@
 + (void)requestChatsWithFriendUserId:(NSInteger)friendId offset:(NSInteger)offset completion:(void(^)(NSArray <BCChatModel *> *ms, NSError *error))completion
 {
     NSString *path = @"/api/chat/mychats";
-    [HTTP requestWithPath:path params:@{@"friendUserId":@(friendId),@"offset":@(offset),@"size":@(FDPageSize)} responseDataClass:self.class completion:^(HTTPResponse *response, NSError *error) {
+    [HTTP requestWithPath:path params:@{@"friendUserId":@(friendId),@"offset":@(offset),@"size":@(Standard_Page_Size_Default)} responseDataClass:self.class completion:^(HTTPResponse *response, NSError *error) {
         if (completion) {
             completion(response.data,error);
         }

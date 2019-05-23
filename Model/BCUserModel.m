@@ -24,7 +24,7 @@
 
 #import "BCUserModel.h"
 #import <BDToolKit/BDToolKit.h>
-#import <StandardPageSize.h>
+#import <StandardPageSize/StandardPageSize.h>
 #import "HTTP.h"
 #import "BDAPI.h"
 

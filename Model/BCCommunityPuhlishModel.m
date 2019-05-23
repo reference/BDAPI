@@ -23,7 +23,7 @@
  */
 
 #import "BCCommunityPuhlishModel.h"
-#import <StandardPageSize.h>
+#import <StandardPageSize/StandardPageSize.h>
 #import "HTTP.h"
 #import "BDAPI.h"
 
